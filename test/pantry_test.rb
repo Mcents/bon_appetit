@@ -45,5 +45,19 @@ class PantryTest < Minitest::Test
     "Flour"          => {quantity: 5, units: "Centi-Units"}}), result
   end
 
+  def test_it_can_shopping_list
+    pantry = Pantry.new
+    r = Recipe.new("Cheese Pizza")
+    r.ingredients
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+    r.ingredients
+    pantry.add_to_shopping_list(r)
+    expected = {"Cheese" => 20, "Flour" => 20}
+
+    assert_equal expected, pantry.shopping_list
+
+  end
+
 
 end
