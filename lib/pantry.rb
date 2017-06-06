@@ -45,5 +45,9 @@ class Pantry
     shop_list
   end
 
+  def print_shopping_list
+    shop_list.map{|k,v| "#{k}: #{v}"}.join(', ')
+  end
+
 
 end
