@@ -32,5 +32,18 @@ class PantryTest < Minitest::Test
     assert_equal 30, result
   end
 
+  def test_conver_units
+    r = Recipe.new("Spicy Cheese Pizza")
+    r.add_ingredient("Cayenne Pepper", 0.025)
+    r.add_ingredient("Cheese", 75)
+    r.add_ingredient("Flour", 500)
+    pa = Pantry.new
+    result = pa.convert_units(r)
+
+    assert_equal (ingredients = {"Cayenne Pepper" => {quantity: 25, units: "Milli-Units"},
+    "Cheese"         => {quantity: 75, units: "Universal Units"},
+    "Flour"          => {quantity: 5, units: "Centi-Units"}}), result
+  end
+
 
 end
