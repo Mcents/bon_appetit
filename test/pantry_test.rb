@@ -26,9 +26,10 @@ class PantryTest < Minitest::Test
   def test_it_can_restock_food
     pa = Pantry.new
     pa.restock("Cheese", 10)
-    result = pa.stock_check("Cheese")
+    pa.stock_check("Cheese")
+    result = pa.restock("Cheese", 20)
 
-    assert_equal 10, result
+    assert_equal 30, result
   end
 
 
