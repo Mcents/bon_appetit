@@ -10,5 +10,11 @@ class Pantry
     stock[name]
   end
 
+  def restock(item, amount)
+    stock[item] += amount
+  end
+
+
+
 
 end
